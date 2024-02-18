@@ -14,13 +14,17 @@ function home(){
 
 
 let count = 0;
+let money = 0;
 
 function selected(elementId){
     count++;
+    money = money + 550;
     if(count<=4){
-        document.getElementById(elementId).style.backgroundColor = "green";
-    }else{
-        count = 4;
+        setBackGround(elementId);
+    }
+    else{
+        count = count - 1;
+        money = money - 550;
         alert("Limit exceed");
     }
 
@@ -29,12 +33,14 @@ function selected(elementId){
     let displayValue = parseInt(displayString);
     displayValue =  count;
 
-    setTextElementValueById("bookedSeatsCount", displayValue)
-}
+    setTextElementValueById("bookedSeatsCount", displayValue);
 
-function setTextElementValueById(elementId, value){
-    const element = document.getElementById(elementId);
-    element.innerText = value;
+    const display2 = document.getElementById("totalMoney");
+    let displayString2 = display2.innerText;
+    let displayValue2 = parseInt(displayString2);
+    displayValue2 = money;
+
+    setTextElementValueById("totalMoney", displayValue2)
 }
 
 
