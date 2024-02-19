@@ -10,6 +10,7 @@ function baught(){
 function home(){
     hideElementById("end");
     addElementById("start");
+    hideElementById("seatsBookingPage");
 }
 
 
@@ -19,6 +20,7 @@ let money = 0;
 function selected(elementId){
     count++;
     money = money + 550;
+
     if(count<=4){
         setBackGround(elementId);
     }
@@ -40,7 +42,33 @@ function selected(elementId){
     let displayValue2 = parseInt(displayString2);
     displayValue2 = money;
 
-    setTextElementValueById("totalMoney", displayValue2)
+    setTextElementValueById("totalMoney", displayValue2);
+
+    return count,money;
+
+}
+
+function apply(){
+    let couponInput = document.getElementById("coupon");
+    let coupon = couponInput.value; 
+    let money2 =0;
+    
+    if(coupon==="NEW15"){
+        money2 = money - (money*0.15);
+    }
+    else if(coupon==="Couple 20"){
+        money2 = money - (money*0.2);
+    }
+    else if(coupon===""){
+        money2 = money;
+    }
+
+    const display = document.getElementById("grandTotalMoney");
+    let displayString = display.innerText;
+    let displayValue = parseInt(displayString);
+    displayValue = money2;
+
+    setTextElementValueById("grandTotalMoney", displayValue);
 }
 
 

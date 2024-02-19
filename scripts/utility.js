@@ -20,3 +20,10 @@ function setTextElementValueById(elementId, value){
     const element = document.getElementById(elementId);
     element.innerText = value;
 }
+
+function display(elementId){
+    const display = document.getElementById(elementId);
+    let displayString = display.innerText;
+    let displayValue = parseInt(displayString);
+    displayValue =  count;
+}
